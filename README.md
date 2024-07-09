@@ -388,11 +388,9 @@ In this project, the following features were removed due to high correlation or 
 - PhD and Masters degree holders generally show higher scores compared to Bachelors and other degree holders.
 - However, there is significant overlap in the score distributions across education levels.
 
-# Startup Success Prediction Model
+## Model Implementation and Evaluation
 
 This section of the notebook focuses on implementing and evaluating various machine learning models to predict the success or failure of startups based on preprocessed numerical and categorical features.
-
-## Model Implementation and Evaluation
 
 ### 1. Logistic Regression
 
@@ -406,8 +404,13 @@ Logistic Regression is used as a baseline model due to its simplicity and interp
 
 - Works well when there's a linear relationship between features and the log-odds of the outcome
 
+**Output of the predicted classification report for Logistic Regression:**
 
+![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/107.5%20classification%20report%20logistic%20regression.png)
 
+**Visualizing the confusion matrix:**
+
+![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/108.%20confusion%20matrix.png)
 
 ### Decision Tree Classifier
 
@@ -423,7 +426,9 @@ Decision Trees are used to capture non-linear relationships and feature interact
 
 - Results are easily visualizable and interpretable
 
+**Output of the predicted classification report for Decision Tree Classifier:**
 
+![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/109.%20classification%20report%20decision%20tree.png)
 
 ### Random Forest Classifier
 
@@ -438,6 +443,31 @@ Random Forest is an ensemble method that builds upon Decision Trees to create a 
 - Provides feature importance rankings
 
 - Often achieves high accuracy in various domains
+
+**Output of the predicted classification report for Random Forest Classifier:**
+
+![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/110.%20classification%20report%20random%20forest.png)
+
+### XGBoost
+
+XGBoost (eXtreme Gradient Boosting) is an advanced machine learning algorithm known for its exceptional performance and efficiency. 
+
+
+**Why it's used:**
+
+- Ensemble method: It uses a gradient boosting framework, combining multiple weak learners (typically decision trees) to create a strong predictive model.
+
+- High performance: XGBoost often outperforms other algorithms in various machine learning competitions and real-world applications.
+
+- Speed and efficiency: It's designed for speed and computational efficiency, utilizing parallel processing and distributed computing capabilities.
+
+- Regularization: XGBoost includes built-in regularization to prevent overfitting, making it more robust than traditional gradient boosting methods.
+
+- Feature importance: XGBoost provides a measure of feature importance, helping in feature selection and model interpretation.
+
+**Output of the predicted classification report for XGBoost:**
+
+![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/115.%20classification%20report%20xg%20boost%20-%20using%20important%20features.png)
 
 ### Model Comparison and Selection
 
