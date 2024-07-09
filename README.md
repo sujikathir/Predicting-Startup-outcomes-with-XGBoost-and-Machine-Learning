@@ -404,6 +404,7 @@ Logistic Regression is used as a baseline model due to its simplicity and interp
 
 - Works well when there's a linear relationship between features and the log-odds of the outcome
 
+
 **Output of the predicted classification report for Logistic Regression:**
 
 ![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/107.5%20classification%20report%20logistic%20regression.png)
@@ -426,6 +427,7 @@ Decision Trees are used to capture non-linear relationships and feature interact
 
 - Results are easily visualizable and interpretable
 
+
 **Output of the predicted classification report for Decision Tree Classifier:**
 
 ![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/109.%20classification%20report%20decision%20tree.png)
@@ -443,6 +445,7 @@ Random Forest is an ensemble method that builds upon Decision Trees to create a 
 - Provides feature importance rankings
 
 - Often achieves high accuracy in various domains
+
 
 **Output of the predicted classification report for Random Forest Classifier:**
 
@@ -465,9 +468,51 @@ XGBoost (eXtreme Gradient Boosting) is an advanced machine learning algorithm kn
 
 - Feature importance: XGBoost provides a measure of feature importance, helping in feature selection and model interpretation.
 
+
 **Output of the predicted classification report for XGBoost:**
 
 ![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/115.%20classification%20report%20xg%20boost%20-%20using%20important%20features.png)
+
+### Gaussian Naive Bayes
+
+Gaussian Naive Bayes is a probabilistic classifier based on applying Bayes' theorem with strong independence assumptions between the features.
+
+**Why it's used:**
+
+- Works well with continuous data, assuming features follow a Gaussian distribution
+
+- Performs well with small datasets
+
+-Computationally efficient and fast for both training and prediction
+
+- Often used as a baseline for text classification problems
+
+- Can handle high-dimensional data effectively
+
+  
+**Output of the predicted classification report for Gaussian Naive Bayes:**
+
+![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/116.%20Gaussian%20Naive%20Bayes.png)
+
+### Bernoulli Naive Bayes
+
+Bernoulli Naive Bayes is a variant of Naive Bayes that assumes binary or boolean features.
+
+**Why it's used:**
+
+- Particularly suitable for binary/boolean features or features that follow a multivariate Bernoulli distribution
+
+- Often used in text classification with binary word occurrence features
+
+- Works well with small datasets and high-dimensional sparse data
+
+- Computationally efficient and simple to implement
+
+- Can perform well in domains where feature independence holds reasonably well
+
+**Output of the predicted classification report for Bernoulli Naive Bayes:**
+
+![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/117.%20Bernoulli%20Naive%20Bayes.png)
 
 ### Model Comparison and Selection
 
@@ -491,9 +536,13 @@ XGBoost (eXtreme Gradient Boosting) is an advanced machine learning algorithm kn
 
 - Factor in computational efficiency for deployment scenarios
 
+### Best Model
+
+Logistic Regression seems to have highest accuracy compared to all other models
+
 ### Hyperparameter Tuning
 
-For the best performing model(s), conduct hyperparameter tuning using Grid Search 
+For the best performing model(s), conduct hyperparameter tuning using Grid Search and Cross Validation
 
 ### Final Model Evaluation
 
@@ -511,3 +560,54 @@ For the best performing model(s), conduct hyperparameter tuning using Grid Searc
 
 - Use SHAP (SHapley Additive exPlanations) values for more detailed feature impact analysis
 
+### Feature Selection: 
+
+Feature selection is a crucial step in our machine learning pipeline, aimed at improving model performance, reducing overfitting, and enhancing interpretability.
+
+### Importance of Feature Selection
+
+1. **Model Performance**: By selecting the most relevant features, we can improve the model's predictive accuracy and generalization capability.
+2. **Dimensionality Reduction**: Reduces the curse of dimensionality, especially important when dealing with high-dimensional datasets.
+3. **Computational Efficiency**: Fewer features lead to faster training and prediction times.
+4. **Interpretability**: A model with fewer, more relevant features is often easier to interpret and explain.
+5. **Cost Reduction**: In real-world applications, fewer features may translate to cost savings in data collection and storage.
+
+### XGBoost for Feature Selection
+
+We use XGBoost's built-in feature importance mechanism for selection. This approach has several advantages:
+
+1. **Captures Non-linear Relationships**: Unlike some linear methods, XGBoost can identify important features involved in complex, non-linear interactions.
+2. **Handles Multiple Feature Types**: Effective with both numerical and categorical features.
+3. **Robust to Multicollinearity**: Can handle correlated features better than some traditional methods.
+4. **Considers Feature Interactions**: The tree-based structure of XGBoost allows it to capture feature importance in the context of other features.
+
+![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/118.%20Feature%20selection.png)
+
+From the above plot we can observe that Focus functions of company_operation and Highest education are the most important features to predict the Success or Failure rate of the startup
+
+### Final Prediction Model
+
+![](https://github.com/sujikathir/Startup-Prediction/blob/main/images/119.%20classification%20report%20final%20-%20XGBoost%20Feature%20sel..png)
+
+### Overall Model Performance
+
+- **Accuracy**: 0.91 (91% of all predictions were correct)
+- **Macro Average**: Unweighted mean of the two classes
+  - Precision: 0.91
+  - Recall: 0.89
+  - F1-score: 0.90
+- **Weighted Average**: Accounts for class imbalance
+  - Precision: 0.91
+  - Recall: 0.91
+  - F1-score: 0.91
+
+### Interpretation
+
+1. The model shows strong performance across both classes, with high precision and recall.
+2. There's a slight class imbalance (102 positive vs 54 negative instances).
+3. The model performs slightly better on the positive class (Class 1) in terms of recall and F1-score.
+4. The high weighted average F1-score (0.91) indicates robust overall performance.
+
+### Conclusion
+
+This classification model demonstrates excellent performance in distinguishing between the two classes, with balanced precision and recall. It appears to be a reliable model for this startup prediction task.
