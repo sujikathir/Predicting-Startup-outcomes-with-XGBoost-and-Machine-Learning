@@ -1,5 +1,7 @@
 # Startup-Prediction
 
+![](https://github.com/sujikathir/Predicting-Startup-outcomes-with-XGBoost-and-Machine-Learning/blob/main/images/cover%20page.jpg)
+
 The goal of this project is to predict the success or failure of startups based on various features. This is a classification problem that involves both numerical and categorical data. By building a predictive model, we aim to provide valuable insights that can help stakeholders make informed decisions about potential startup investments.
 
 
